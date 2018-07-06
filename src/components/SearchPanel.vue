@@ -41,30 +41,44 @@
                 </div>
             </div>
         </form>
+        <button @click="fetchStations">aaa</button>
+        <pre>
+            {{ airports }}
+        </pre>
     </div>
 </template>
 
 <script>
-export default {
-    data: () => ({
-        departure: '',
-        destination: '',
-        traveldate: ''
-    }),
-    methods: {
-        validateBeforeSubmit() {
-        this.$validator.validateAll().then((result) => {
-            if (result) {
-                // eslint-disable-next-line
-                alert('Form Submitted!');
-                return;
-            }
+    import { mapActions } from 'vuex';
 
-            alert('Correct them errors!');
-        });
+export default {
+        data: () => ({
+            departure: '',
+            destination: '',
+            traveldate: ''
+        }),
+        methods: {
+            validateBeforeSubmit() {
+            this.$validator.validateAll().then((result) => {
+                if (result) {
+                    // eslint-disable-next-line
+                    alert('Form Submitted!');
+                    return;
+                }
+
+                alert('Correct them errors!');
+            });
+            },
+            ...mapActions([
+                'fetchStations'
+            ])
+        },
+        computed: {
+            airports: function () {
+                return this.$store.state.stations;
+            }
         }
-    }
-};
+    };
 </script>
 
 <style lang="scss" scoped>

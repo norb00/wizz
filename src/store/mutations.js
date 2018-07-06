@@ -9,5 +9,11 @@ export default {
     },
     setLastRequestUrl (state, url) {
         state.lastRequestUrl = url;
-    }
+    },
+    setStations (state, data) {
+
+        state.stations = data;
+
+        setLocalStorage('stations', state.stations);
+    },
 }

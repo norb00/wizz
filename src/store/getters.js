@@ -1,32 +1,35 @@
 import { getLocalStorageItem } from '../utils/local-storage';
 
-export default {
-    requestUrl: (state, { selectedProjectKeys, fromDate, toDate })) => {
-        const basicUrl = 'https://mock-air.herokuapp.com/';
+const basicUrl = 'https://mock-air.herokuapp.com/';
 
-        const assets = basicUrl + 'asset/stations';
-        const search = basicUrl + 'search?departureStation=BUD&arrivalStation=BCN&date=2018-07-03';
+export default {
+    searchFlights: (state, { travelDate, departureStation, arrivalStation }) => {
+
+//        const assets = basicUrl + 'asset/stations';
+//        const search = basicUrl + 'search?departureStation=BUD&arrivalStation=BCN&date=2018-07-03';
+
         const parameters = [
             {
-                name: 'projects',
-                value: selectedProjectKeys
+                name: 'departureStation',
+                value: departureStation
             },
             {
-                name: 'fromDate',
-                value: fromDate
+                name: 'arrivalStation',
+                value: arrivalStation
             },
             {
-                name: 'toDate',
-                value: toDate
-            },
-            {
-                name: 'showComment',
-                value: true
+                name: 'date',
+                value: travelDate
             }
         ];
 
         const searchQuery = parameters.map(parameter => `${encodeURIComponent(parameter.name)}=${encodeURIComponent(parameter.value)}`).join('&');
 
-        return `/api/rest/findIssues?${searchQuery}`;
+        return `${basicUrl}search?${searchQuery}`;
+    },
+
+    getStations: (state) => {
+        return `${basicUrl}asset/stations`;
     }
+
 }

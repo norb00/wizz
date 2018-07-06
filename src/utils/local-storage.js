@@ -1,12 +1,12 @@
 export function getLocalStorageItem (targetKey) {
-    const rawData = localStorage.getItem(`blockometer.${targetKey}`);
+    const stations = localStorage.getItem(`wizz.${targetKey}`);
     try {
-        return JSON.parse(rawData);
+        return JSON.parse(stations);
     } catch (e) {
-        return rawData;
+        return stations;
     }
-};
+}
 
 export function setLocalStorage (variable, value) {
-    localStorage.setItem(`blockometer.${variable}`, JSON.stringify(value));
-};
+    localStorage.setItem(`wizz.${variable}`, JSON.stringify(value));
+}
