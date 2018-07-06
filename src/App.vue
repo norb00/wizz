@@ -5,16 +5,19 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld';
 import AppHeader from './components/AppHeader';
-import SearchPanel from './components/SearchPanel'
+import SearchPanel from './components/SearchPanel';
+import AirportSelector from './components/AirportSelector';
+
 
 export default {
   name: 'app',
   components: {
     HelloWorld,
     AppHeader,
-    SearchPanel
+    SearchPanel,
+    AirportSelector
   }
 }
 </script>

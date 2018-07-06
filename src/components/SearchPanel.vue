@@ -9,6 +9,7 @@
                         <i v-show="errors.has('departure')" class="fa fa-warning"></i>
                         <span v-show="errors.has('departure')" class="help is-danger">{{ errors.first('departure') }}</span>
                     </p>
+                    <airport-selector v-if="airports" ></airport-selector>
                 </div>
             </div>
 
@@ -51,8 +52,9 @@
 
 <script>
     import { mapActions } from 'vuex';
+    import AirportSelector from './AirportSelector.vue';
 
-export default {
+    export default {
         data: () => ({
             departure: '',
             destination: '',
@@ -78,6 +80,9 @@ export default {
             airports: function () {
                 return this.$store.state.stations;
             }
+        },
+        components: {
+            AirportSelector
         }
     };
 </script>
