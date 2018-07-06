@@ -28,6 +28,7 @@
                     <label class="label">Date of travel</label>
                     <p class="control has-icon has-icon-right">
                         <input name="traveldate" v-model="traveldate" v-validate="'required|alpha'" :class="{'input': true, 'is-danger': errors.has('traveldate') }" type="text" placeholder="traveldate">
+                        <md-datepicker v-model="traveldate" />
                         <i v-show="errors.has('traveldate')" class="fa fa-warning"></i>
                         <span v-show="errors.has('traveldate')" class="help is-danger">{{ errors.first('traveldate') }}</span>
                     </p>
@@ -55,7 +56,7 @@ export default {
         data: () => ({
             departure: '',
             destination: '',
-            traveldate: ''
+            traveldate: new Date()
         }),
         methods: {
             validateBeforeSubmit() {
