@@ -1,6 +1,9 @@
 <template>
-    <select v-model="airport" name="airport" id="airport">
-        <option v-for="airport in airports" :key="airport.iata">
+    <select 
+        v-if="airports"
+        aria-placeholder="Select an airport"
+        @input="event => { $emit('input', event.target.value) }">
+        <option v-for="airport in airports" :key="airport.iata" v-bind:value="airport.iata">
             {{ airport.shortName }}
         </option>
     </select>
@@ -8,21 +11,8 @@
 <script>
 export default {
     computed: {
-        airports: function () {
+        airports() {
             return this.$store.state.stations;
-        },
-        airport: {
-            get() {
-                return this.$store.state.airport;
-            },
-            set(airport) {
-                console.log(airport);
-            }
-        }
-    },
-    methods: {
-        selectAirport() {
-            console.log(this.airport);
         }
     }
 }

@@ -1,6 +1,8 @@
 <template>
   <div id="app">
     <search-panel></search-panel>
+    <flights></flights>
+    <cart></cart>
   </div>
 </template>
 
@@ -9,6 +11,8 @@ import HelloWorld from './components/HelloWorld';
 import AppHeader from './components/AppHeader';
 import SearchPanel from './components/SearchPanel';
 import AirportSelector from './components/AirportSelector';
+import Flights from './components/Flights';
+import Cart from './components/Cart';
 
 
 export default {
@@ -17,7 +21,9 @@ export default {
     HelloWorld,
     AppHeader,
     SearchPanel,
-    AirportSelector
+    AirportSelector,
+    Flights,
+    Cart
   }
 }
 </script>

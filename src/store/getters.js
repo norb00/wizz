@@ -1,9 +1,7 @@
-import { getLocalStorageItem } from '../utils/local-storage';
-
 const basicUrl = 'https://mock-air.herokuapp.com/';
 
 export default {
-    searchFlights: (state, { travelDate, departureStation, arrivalStation }) => {
+    searchFlights: (state) => {
 
 //        const assets = basicUrl + 'asset/stations';
 //        const search = basicUrl + 'search?departureStation=BUD&arrivalStation=BCN&date=2018-07-03';
@@ -11,15 +9,15 @@ export default {
         const parameters = [
             {
                 name: 'departureStation',
-                value: departureStation
+                value: state.departure
             },
             {
                 name: 'arrivalStation',
-                value: arrivalStation
+                value: state.destination
             },
             {
                 name: 'date',
-                value: travelDate
+                value: state.travelDate
             }
         ];
 
@@ -28,7 +26,34 @@ export default {
         return `${basicUrl}search?${searchQuery}`;
     },
 
-    getStations: (state) => {
+    searchReturnFlights: (state) => {
+
+        //        const assets = basicUrl + 'asset/stations';
+        //        const search = basicUrl + 'search?departureStation=BUD&arrivalStation=BCN&date=2018-07-03';
+        
+        if (state.returnDate) {
+            const parameters = [
+                {
+                    name: 'departureStation',
+                    value: state.destination
+                },
+                {
+                    name: 'arrivalStation',
+                    value: state.departure
+                },
+                {
+                    name: 'date',
+                    value: state.returnDate
+                }
+            ];
+    
+            const searchQuery = parameters.map(parameter => `${encodeURIComponent(parameter.name)}=${encodeURIComponent(parameter.value)}`).join('&');
+    
+            return `${basicUrl}search?${searchQuery}`;
+        }
+    },
+        
+    getStations: () => {
         return `${basicUrl}asset/stations`;
     }
 
