@@ -18,9 +18,19 @@
                 const _trip = {
                     ticket: ticket,
                     arrive: flight.arrival,
-                    departure: flight.departure
+                    departure: flight.departure,
+                    flightNumber: flight.flightNumber
                 };
-                this.$store.commit('addTicketToCart', _trip);
+                if (!this.tickets.find(ticket => {
+                    return ticket.flightNumber === flight.flightNumber;
+                })) {
+                    this.$store.commit('addTicketToCart', _trip);
+                }
+            }
+        },
+        computed: {
+            tickets() {
+                return this.$store.state.tickets;
             }
         }
     }

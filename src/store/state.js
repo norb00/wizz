@@ -4,7 +4,7 @@ export default {
     lastRequestUrl: null,
     stations: null,
     flights: null,
-    backFlights: null,
+    returnFlights: null,
     tickets: [],
     departure: null,
     destination: null,
