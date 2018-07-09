@@ -14,6 +14,17 @@ export default {
         state.stations = data;
         setLocalStorage('stations', state.stations);
     },
+    filterDestinations (state, airport) {
+        if (airport) {
+            const connections = state.stations.find(s => s.iata === airport).connections;
+            state.filteredDestinations = state.stations.filter(station => {
+                return connections.find(connection => connection.iata === station.iata);
+            });
+        } else {
+            state.filteredDestinations = null;
+        }
+        setLocalStorage('filteredDestinations', state.filteredDestinations);
+    },
     setFlights (state, data) {
         state.flights = data;
         setLocalStorage('flights', state.flights);

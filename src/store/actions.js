@@ -66,6 +66,8 @@ export default {
                 commit(`setLastRequestUrl`, url);
                 commit('toggleProcessingState');
             });            
+        } else {
+            commit('setReturnFlights', null);            
         }
     }
 }

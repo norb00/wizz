@@ -41,12 +41,6 @@ export default {
 @import "./assets/variables";
 @import "./assets/elements";
 
-#app {
-  position: relative;
-  background: $color-beige;
-  min-height: 100vh;
-}
-
 .app-content-wrapper {
     margin: s(-1) auto s(1);
     width: 90%;

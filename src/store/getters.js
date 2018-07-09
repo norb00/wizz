@@ -1,3 +1,4 @@
+import { formatDate } from '../utils/date-functions';
 const basicUrl = 'https://mock-air.herokuapp.com/';
 
 export default {
@@ -17,7 +18,7 @@ export default {
             },
             {
                 name: 'date',
-                value: state.travelDate
+                value: formatDate(state.travelDate)
             }
         ];
 
@@ -43,7 +44,7 @@ export default {
                 },
                 {
                     name: 'date',
-                    value: state.returnDate
+                    value: formatDate(state.returnDate)
                 }
             ];
     

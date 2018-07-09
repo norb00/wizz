@@ -1,3 +1,5 @@
+import { getLocalStorageItem }  from '../utils/local-storage';
+
 export default {
     isProcessing: false,
     hasTechnicalError: false,
@@ -6,8 +8,9 @@ export default {
     flights: null,
     returnFlights: null,
     tickets: [],
-    departure: null,
-    destination: null,
-    travelDate: null,
-    returnDate: null
+    departure: getLocalStorageItem('departure') || null,
+    destination: getLocalStorageItem('destination') || null,
+    filteredDestinations: getLocalStorageItem('filteredDestinations') || null,
+    travelDate: getLocalStorageItem('travelDate') || null,
+    returnDate: getLocalStorageItem('returnDate') || null
 }

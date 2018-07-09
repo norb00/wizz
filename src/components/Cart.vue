@@ -1,13 +1,13 @@
 <template>
-    <div class="container">
-        <h1>Tickets</h1>
+    <div class="container  border border-warning">
+        <h3>Tickets</h3>
         {{ flightDetails.departure }} - {{ flightDetails.destination }}
         <div class="row" v-for="ticket in tickets" :key="ticket.ticket.fareSellKey">
             {{ ticket.ticket.departure }}
             {{ ticket.ticket.arrive }}
             {{ ticket.ticket.bundle }}
             {{ ticket.ticket.price }}
-            <span @click="removeFromCart(ticket)">X</span>
+            <button type="button" class="btn btn-danger" @click="removeFromCart(ticket)">Remove</button>
         </div>
         <h3>Total price: {{ totalPrice }}</h3>
     </div>
@@ -39,3 +39,6 @@
         }
     }
 </script>
+<style lang="scss">
+    @import '../../node_modules/bootstrap/scss/bootstrap.scss';
+</style>
