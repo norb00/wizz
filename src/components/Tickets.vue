@@ -19,12 +19,15 @@
                     ticket: ticket,
                     arrive: flight.arrival,
                     departure: flight.departure,
-                    flightNumber: flight.flightNumber
+                    flightNumber: flight.flightNumber,
+                    flight: flight
                 };
-                if (!this.tickets.find(ticket => {
+                const isInTheList = this.tickets.find(ticket => {
                     return ticket.flightNumber === flight.flightNumber;
-                })) {
+                });
+                if (!isInTheList) {
                     this.$store.commit('addTicketToCart', _trip);
+                    flight.remainingTickets--;
                 }
             }
         },

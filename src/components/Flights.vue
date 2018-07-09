@@ -1,7 +1,7 @@
 <template>
     <div class="container" v-if="flights">
         <h2>Flights</h2>
-        <div class="row col-10 border border-primary" v-for="flight in flights" :key="flight.flightnumber">
+        <div class="flights border border-primary" v-for="flight in flights" :key="flight.flightnumber">
             <p><span>Departure: </span>{{ flight.departure | formatDate }}</p>
             <p><span>Arrive: </span>{{ flight.arrival | formatDate }}</p>
             <p><span>Remaining tickets: </span>{{ flight.remainingTickets }}</p>
@@ -10,7 +10,7 @@
         </div>
 
         <h2>Return Flights:</h2>
-        <div class="row col-10 border border-primary" v-for="flight in returnFlights" :key="flight.flightnumber">
+        <div class="flights border border-primary" v-for="flight in returnFlights" :key="flight.flightnumber">
             <p><span>Departure: </span>{{ flight.departure | formatDate }}</p>
             <p><span>Arrive: </span>{{ flight.arrival | formatDate }}</p>
             <p><span>Remaining tickets: </span>{{ flight.remainingTickets }}</p>
@@ -40,7 +40,7 @@
                 const day = td.getDate() < 10 ? `0${td.getDate()}` : td.getDate();
                 const hours = td.getHours() < 10 ? `0${td.getHours()}` : td.getHours();
                 const minutes = td.getMinutes() < 10 ? `0${td.getMinutes()}` : td.getMinutes();
-                return `${year}-${month}-${day} ${hours}:${minutes}`; 
+                return `${year}-${month}-${day} ${hours}:${minutes}`;
             }
         },
         components: {

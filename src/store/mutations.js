@@ -40,5 +40,12 @@ export default {
     },
     addTicketToCart (state, ticket) {
         state.tickets.push(ticket);
+    },
+    removeTicket (state, ticket) {
+        const ticketIndex = state.tickets.findIndex(
+            t => ticket.ticket.fareSellKey === t.ticket.fareSellKey
+        );
+        state.tickets[ticketIndex].flight.remainingTickets++;
+        state.tickets.splice(ticketIndex, 1);
     }
 }

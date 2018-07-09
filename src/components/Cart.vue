@@ -7,6 +7,7 @@
             {{ ticket.ticket.arrive }}
             {{ ticket.ticket.bundle }}
             {{ ticket.ticket.price }}
+            <span @click="removeFromCart(ticket)">X</span>
         </div>
         <h3>Total price: {{ totalPrice }}</h3>
     </div>
@@ -29,6 +30,11 @@
                     sumPrice += ticket.ticket.price;
                 });
                 return sumPrice;
+            }
+        },
+        methods: {
+            removeFromCart(ticket) {
+                this.$store.commit('removeTicket', ticket);
             }
         }
     }
