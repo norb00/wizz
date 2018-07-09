@@ -1,17 +1,19 @@
 <template>
-  <div id="app" class="page-layout">
-        <div class="search">
-            <search-panel></search-panel>
+    <div id="app" class="page-layout d-flex">
+        <div class="search-and-results d-flex flex-column w-75 p-3">
+            <div class="search">
+                <search-panel></search-panel>
+            </div>
+            <div class="results">
+                <div class="flighstbox d-flex">
+                    <flights></flights>
+                </div>
+            </div>
         </div>
-        <div class="results">
-        <div class="flighstbox">
-            <flights></flights>
-        </div>
-        <div class="tickets">
+        <div class="tickets w-25 p-3">
             <cart></cart>
         </div>
-      </div>
-  </div>
+    </div>
 </template>
 
 <script>
@@ -40,6 +42,7 @@ export default {
 @import "./assets/mixins";
 @import "./assets/variables";
 @import "./assets/elements";
+    @import '../node_modules/bootstrap/scss/bootstrap.scss';
 
 .app-content-wrapper {
     margin: s(-1) auto s(1);
