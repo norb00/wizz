@@ -18,6 +18,7 @@
 </template>
 <script>
 export default {
+    name: 'AirportSelector',
     props: {
         selectedAirport: String, 
         filtered: {

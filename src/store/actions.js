@@ -2,16 +2,11 @@ export default {
     fetchStations ({ getters, commit }) {
         const url = getters.getStations;
 
-        /* if (url === localStorage.getItem('wizz.rawDataQuery')) {
-            return;
-        }*/
         commit('toggleProcessingState');
         commit('setTechnicalError', false);
         commit('setStations', null);
 
-        if (localStorage.getItem('wizz.debug')) {
-            // commit('setStations', getMockRawData());
-        } else {
+        if (url) {
             fetch(url).then(function (response) {
                 return response.json();
             }).then(function (rawData) {
@@ -32,12 +27,8 @@ export default {
 
         const returnFlightUrl = getters.searchReturnFlights;
 
-        /* if (url === localStorage.getItem('wizz.rawDataQuery')) {
-            return;
-        }*/
         commit('toggleProcessingState');
         commit('setTechnicalError', false);
-
 
         if (url) {
             fetch(url).then(function (response) {

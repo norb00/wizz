@@ -16,6 +16,7 @@
     import { formatFullDate } from '../utils/date-functions';
 
     export default {
+        name: 'Cart',
         computed: {
             tickets() {
                 return this.$store.state.tickets;

@@ -15,6 +15,7 @@
     import { formatDate } from '../utils/date-functions';
 
 export default {
+        name: 'Tickets',
         props: {
             flight: [Object, String],
             route: Object

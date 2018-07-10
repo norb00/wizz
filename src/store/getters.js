@@ -4,9 +4,6 @@ const basicUrl = 'https://mock-air.herokuapp.com/';
 export default {
     searchFlights: (state) => {
 
-//        const assets = basicUrl + 'asset/stations';
-//        const search = basicUrl + 'search?departureStation=BUD&arrivalStation=BCN&date=2018-07-03';
-
         const parameters = [
             {
                 name: 'departureStation',
@@ -29,9 +26,6 @@ export default {
 
     searchReturnFlights: (state) => {
 
-        //        const assets = basicUrl + 'asset/stations';
-        //        const search = basicUrl + 'search?departureStation=BUD&arrivalStation=BCN&date=2018-07-03';
-        
         if (state.returnDate) {
             const parameters = [
                 {

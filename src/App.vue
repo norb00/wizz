@@ -8,7 +8,7 @@
                 <flights></flights>
             </div>
         </div>
-        <div class="tickets w-25 py-3">
+        <div class="tickets w-25 py-3 pr-3">
             <cart></cart>
         </div>
     </div>
@@ -36,27 +36,14 @@ export default {
     @import "./assets/reset";
     @import '../node_modules/bootstrap/scss/bootstrap.scss';
 
-.app-content-wrapper {
-    margin: s(-1) auto s(1);
-    width: 90%;
-    max-width: 1260px;
-}
-
-.page-layout {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 100vh;
-    height: 90vh;
-}
-.flights {
-    width: 50%;
-}
-.flighstbox {
-    justify-content: space-around;
-    flex: 1 30%;
-}
-.tickets {
-    flex-direction: row;
-}
+    .flights {
+        width: 50%;
+    }
+    .flighstbox {
+        justify-content: space-around;
+        flex: 1 30%;
+    }
+    .tickets {
+        flex-direction: row;
+    }
 </style>

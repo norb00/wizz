@@ -42,6 +42,7 @@
     import Datepicker from 'vuejs-datepicker';
 
     export default {
+        name: 'SearchPanel',
         data() {
             return {
                 formErrors: [],

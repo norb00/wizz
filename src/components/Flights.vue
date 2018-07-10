@@ -51,6 +51,7 @@
     import { formatDate, formatFullDate } from '../utils/date-functions';
 
     export default {
+        name: 'Flights',
         data() {
             return {
                 dateFormat: "yyyy-MM-dd",
