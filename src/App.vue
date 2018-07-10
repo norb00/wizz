@@ -4,19 +4,17 @@
             <div class="search">
                 <search-panel></search-panel>
             </div>
-            <div class="flighstbox container">
+            <div class="d-flex container border border-secondary p-2 mh-0">
                 <flights></flights>
             </div>
         </div>
-        <div class="tickets w-25 p-3">
+        <div class="tickets w-25 py-3">
             <cart></cart>
         </div>
     </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
-import AppHeader from "./components/AppHeader";
 import SearchPanel from "./components/SearchPanel";
 import AirportSelector from "./components/AirportSelector";
 import Flights from "./components/Flights";
@@ -25,8 +23,6 @@ import Cart from "./components/Cart";
 export default {
   name: "app",
   components: {
-    HelloWorld,
-    AppHeader,
     SearchPanel,
     AirportSelector,
     Flights,
@@ -36,10 +32,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./assets/reset";
-@import "./assets/mixins";
-@import "./assets/variables";
-@import "./assets/elements";
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
+    @import "./assets/reset";
     @import '../node_modules/bootstrap/scss/bootstrap.scss';
 
 .app-content-wrapper {
@@ -55,24 +49,14 @@ export default {
     width: 100vh;
     height: 90vh;
 }
-.search {
-
-}
-.results {
-    display: flex;
-    justify-content: center;
-}
 .flights {
     width: 50%;
 }
 .flighstbox {
     justify-content: space-around;
-    display: flex;
-    width: 90vh;
     flex: 1 30%;
 }
 .tickets {
     flex-direction: row;
-    width: 10vh;
 }
 </style>

@@ -1,37 +1,35 @@
 <template>
-    <div class="containter" :class="{'processing' : isProcessing}">
+    <div class="containter border border-secondary p-2" :class="{'processing' : isProcessing}">
         <form name="searchFlight" id="searchFlight">
-            <div class="row is-12 border border-primary">
-                <div class="col-6 border border-primary">
+            <div class="row is-12">
+                <div class="col-6">
                     <label class="label">Departure</label>
                     <airport-selector v-model="departure" :selected-airport="departure" :class="{'border border-danger': fieldErrors('departure').length > 0 }"></airport-selector>
                     <error-list :errors-to-show="fieldErrors('departure')"></error-list>
                 </div>
-                <div class="col-6 border border-primary">
+                <div class="col-6">
                     <label class="label">Destination</label>
                     <airport-selector v-model="destination" :selected-airport="destination" :filtered="filteredDestination"></airport-selector>
                     <error-list :errors-to-show="fieldErrors('destination')"></error-list>
                 </div>
             </div>
 
-            <div class="row is-12 border border-primary">
-                <div class="col-6 border border-primary">
+            <div class="row is-12">
+                <div class="col-6">
                     <label class="label">Date of departure</label>
-                    <datepicker :format="dateFormat" v-model="travelDate" :clear-button="true" :disabledDates="disabledDates"></datepicker>
+                    <datepicker :format="dateFormat" v-model="travelDate" :clear-button="true" :disabledDates="disabledDates" class="date-selector"></datepicker>
                     <error-list :errors-to-show="fieldErrors('travelDate')"></error-list>
                 </div>
-                <div class="col-6 border border-primary">
+                <div class="col-6">
                     <label class="label">Date of return</label>
-                    <datepicker :format="dateFormat" v-model="returnDate" :clear-button="true" :disabledDates="disabledDates"></datepicker>
+                    <datepicker :format="dateFormat" v-model="returnDate" :clear-button="true" :disabledDates="disabledDates" class="date-selector"></datepicker>
                     <error-list :errors-to-show="fieldErrors('returnDate')"></error-list>
                 </div>
             </div>
-            <div class="row is-12">
-                <div class="col-12">
-                    <p class="control">
-                        <button type="button" class="btn btn-primary" @click="validateForm">Search</button>
-                    </p>
-                </div>
+            <div class="row p-2">
+                <p class="control m-2">
+                    <button type="button" class="btn btn-primary" @click="validateForm">Search</button>
+                </p>
             </div>
         </form>
     </div>
@@ -159,5 +157,11 @@
 
     .clear {
         float: left;
+    }
+
+    .date-selector {
+        input {
+            width: 90%;
+        }
     }
 </style>

@@ -1,8 +1,8 @@
 <template>
     <div class="">
-        <div class="d-flex flex-row justify-content-between mw-100" v-if="flight.remainingTickets !== 0">
+        <div class="d-flex flex-row justify-content-start mw-100" v-if="flight.remainingTickets !== 0">
             <div class="m-1 p-1" v-for="fare in flight.fares" :key="fare.fareSellKey">
-                <button type="button" class="btn btn-primary"  @click="selectTicket(flight,fare)">{{ fare.bundle }}<br/>{{ fare.price }}</button>
+                <button type="button" class="btn btn-primary"  @click="selectTicket(route, flight,fare)">{{ fare.bundle }}<br/>{{ fare.price }}</button>
             </div>
         </div>
         <div class="row" v-if="flight.remainingTickets === 0">
@@ -16,7 +16,8 @@
 
 export default {
         props: {
-            flight: [Object, String]
+            flight: [Object, String],
+            route: Object
         },
         data() {
             return {
@@ -24,9 +25,10 @@ export default {
             }
         },
         methods: {
-            selectTicket(flight, ticket) {
+            selectTicket(route, flight, ticket) {
                 this.fieldErrors = [];
                 const _trip = {
+                    route: route,
                     ticket: ticket,
                     arrive: flight.arrival,
                     departure: flight.departure,
@@ -51,7 +53,7 @@ export default {
                         flight.remainingTickets--;
                     }
                 }
-            }
+            },
         },
         computed: {
             tickets() {
@@ -67,7 +69,8 @@ export default {
     @import '../../node_modules/bootstrap/scss/bootstrap.scss';
     .btn {
         width: auto;
-        min-width: 6rem;
+        min-width: 4rem;
+        font-size: 12px;
     }
 </style>
 
