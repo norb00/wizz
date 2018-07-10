@@ -38,9 +38,8 @@ export default {
         commit('toggleProcessingState');
         commit('setTechnicalError', false);
 
-        if (localStorage.getItem('wizz.debug')) {
-            //commit('setStations', getMockRawData());
-        } else {
+
+        if (url) {
             fetch(url).then(function (response) {
                 return response.json();
             }).then(function (rawData) {
@@ -65,9 +64,9 @@ export default {
             }).then(() => {
                 commit(`setLastRequestUrl`, url);
                 commit('toggleProcessingState');
-            });            
+            });
         } else {
-            commit('setReturnFlights', null);            
+            commit('setReturnFlights', null);
         }
     }
 }
