@@ -1,7 +1,7 @@
 <template>
     <div class="">
-        <div class="d-flex flex-row justify-content-around" v-if="flight.remainingTickets !== 0">
-            <div class="" v-for="fare in flight.fares" :key="fare.fareSellKey">
+        <div class="d-flex flex-row justify-content-between mw-100" v-if="flight.remainingTickets !== 0">
+            <div class="m-1 p-1" v-for="fare in flight.fares" :key="fare.fareSellKey">
                 <button type="button" class="btn btn-primary"  @click="selectTicket(flight,fare)">{{ fare.bundle }}<br/>{{ fare.price }}</button>
             </div>
         </div>
@@ -12,7 +12,9 @@
 </template>
 <script>
     import ErrorList from './ErrorList';
-    export default {
+    import { formatDate } from '../utils/date-functions';
+
+export default {
         props: {
             flight: [Object, String]
         },
@@ -39,9 +41,9 @@
                     this.fieldErrors.push({ticket: 'A ticket for this flight is already in the cart'});
                 } else {
                     const onThisDaySelected = this.tickets.find(_ticket => {
-                        return _ticket.departure === _trip.departure;
+                        return formatDate(_ticket.departure) === formatDate(_trip.departure);
                     });
-                    console.log(flight, onThisDaySelected);
+
                     if (onThisDaySelected) {
                         this.fieldErrors.push({ticket: 'You can select only one ticket per day'});
                     } else {
@@ -61,7 +63,11 @@
         }
     }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
     @import '../../node_modules/bootstrap/scss/bootstrap.scss';
+    .btn {
+        width: auto;
+        min-width: 6rem;
+    }
 </style>
 

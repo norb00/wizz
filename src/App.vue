@@ -1,13 +1,11 @@
 <template>
-    <div id="app" class="page-layout d-flex">
+    <div id="app" class="d-flex">
         <div class="search-and-results d-flex flex-column w-75 p-3">
             <div class="search">
                 <search-panel></search-panel>
             </div>
-            <div class="results">
-                <div class="flighstbox d-flex">
-                    <flights></flights>
-                </div>
+            <div class="flighstbox container">
+                <flights></flights>
             </div>
         </div>
         <div class="tickets w-25 p-3">

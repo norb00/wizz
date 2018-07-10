@@ -1,17 +1,19 @@
 <template>
-    <div class="container" v-if="flights">
-        <div v-if="flights.length>0">
+    <div class="d-flex w-100" v-if="flights">
+        <div v-if="flights.length>0" class="d-flex flex-column w-50 p-3">
             <h2>Flights</h2>
-            <div class="flights border border-primary" v-for="flight in flights" :key="flight.flightnumber">
+            <div class="flights border border-primary w-100 p-1 m-1" v-for="flight in flights" :key="flight.flightnumber">
                 <p><span>Departure: </span>{{ flight.departure | formatDate }}</p>
                 <p><span>Arrive: </span>{{ flight.arrival | formatDate }}</p>
                 <p><span>Remaining tickets: </span>{{ flight.remainingTickets }}</p>
 
                 <tickets v-bind:flight="flight"></tickets>
             </div>
+        </div>
 
+        <div class="return-flights d-flex flex-column w-50 p-3">
             <h2>Return Flights:</h2>
-            <div class="flights border border-primary" v-if="returnFlights" v-for="flight in returnFlights" :key="flight.flightnumber">
+            <div class="flights border border-primary w-100 p-1 m-1" v-if="returnFlights" v-for="flight in returnFlights" :key="flight.flightnumber">
                 <p><span>Departure: </span>{{ flight.departure | formatDate }}</p>
                 <p><span>Arrive: </span>{{ flight.arrival | formatDate }}</p>
                 <p><span>Remaining tickets: </span>{{ flight.remainingTickets }}</p>
